@@ -1,14 +1,17 @@
-import React from 'react';
+import React from 'react'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ToDoList from './components/ToDoList';
+import ViewTasks from './components/ViewTasks';
 
 function App() {
-
-  // return (
-  //   <div>
-      //<h1>Hello from React</h1>
-   return (<ToDoList/>)
-  //   {/* </div>
-  // ); */}
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ToDoList />} />
+        <Route path="/view" element={<ViewTasks />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

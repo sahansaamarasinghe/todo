@@ -8,15 +8,13 @@ body {
   min-height: 100vh;
 }
 
-.to-do-list {
-  background-color: #ffffff;
-  margin-top: 100px;
-  padding: 30px;
-  width: 100%;
-  max-width: 450px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.todo-container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
@@ -26,17 +24,26 @@ h1 {
   margin-bottom: 20px;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  margin-bottom: 12px;
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.add-button {
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.add-button,.view-button, .back-button
+{
   width: 100%;
   padding: 12px;
   background-color: #1976d2;
@@ -46,20 +53,46 @@ input[type="text"] {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-bottom: 20px;
 }
 
-.add-button:hover {
+.view-button2 {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+} 
+  
+
+.add-button:hover,
+.view-button:hover {
   background-color: #125ea3;
 }
 
-ol {
+.filter-section {
+  margin-bottom: 10px;
+}
+
+.task-list-title {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+ol,
+.task-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li {
+.task-list li {
   background-color: #f9f9f9;
   padding: 12px 14px;
   margin-bottom: 10px;
@@ -92,27 +125,16 @@ li {
   background-color: #d32f2f;
 }
 
-input[type="text"], select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.view-button {
+.view-button.task-button {
   background-color: #4caf50;
-  color: white;
-  border: none;
+  width: auto;
   padding: 6px 10px;
   font-size: 0.9rem;
   border-radius: 4px;
   margin-left: 5px;
-  cursor: pointer;
 }
 
-.view-button:hover {
+.view-button.task-button:hover {
   background-color: #388e3c;
 }
 
@@ -122,41 +144,6 @@ input[type="text"], select {
   background-color: #f0f8ff;
   border: 1px solid #ccc;
   border-radius: 6px;
-}
-
-.todo-container {
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.input-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.filter-section {
-  margin-bottom: 10px;
-}
-
-.task-list-title {
-  margin-top: 20px;
-  font-size: 1.4rem;
-  color: #333;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
-}
-
-.task-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px 0;
 }
 
 .close-button {
@@ -178,10 +165,13 @@ input[type="text"], select {
 .error-message {
   color: red;
   font-size: 0.9rem;
-  margin-top: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
 }
 
 .input-error {
   border: 2px solid red !important;
   background-color: #ffeaea;
 }
+
+
